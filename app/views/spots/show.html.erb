@@ -1,3 +1,12 @@
 elgdlkashasdlkf
 
 <%= @spot.name %>
+
+<% @spot.image_links.each do |url| %>
+  <%= image_tag(url.image_link, width: "800", height: "auto") %>
+<% end %>
+
+<% form_for @spot.ratings.build do |f| %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+<% end %>

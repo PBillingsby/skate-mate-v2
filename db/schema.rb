@@ -13,6 +13,8 @@
 ActiveRecord::Schema.define(version: 2021_03_26_224126) do
 
   create_table "image_links", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "spot_id"
     t.string "image_link"
   end
 

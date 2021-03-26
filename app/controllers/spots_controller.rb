@@ -6,8 +6,8 @@ class SpotsController < ApplicationController
   def create
     spot = Spot.create(spot_params)
     if params[:spot][:image]
-      image = Cloudinary::Uploader.upload(params[:image], options = {CLOUDINARY_URL: ENV["CLOUDINARY_NAME"]})
-      spot.image_links.create(image["url"])
+      image = Cloudinary::Uploader.upload(params[:spot][:image], options = {CLOUDINARY_URL: ENV["CLOUDINARY_NAME"]})
+      spot.image_links.create(image_link: image["url"], user_id: current_user.id)
     end
     redirect_to spot_path(spot)
   end
