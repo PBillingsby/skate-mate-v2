@@ -1,0 +1,3 @@
+class SpotsController < ApplicationController
+
+end

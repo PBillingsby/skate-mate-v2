@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_24_160920) do
+ActiveRecord::Schema.define(version: 2021_03_26_213403) do
+
+  create_table "ratings", force: :cascade do |t|
+    t.float "rating"
+    t.text "description"
+  end
+
+  create_table "spots", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.string "street_address"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.float "longitude"
+    t.float "latitude"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
