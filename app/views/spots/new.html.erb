@@ -10,5 +10,6 @@
   <%= f.text_field :state %>
   <%= f.label :country %>
   <%= f.country_select :country, priority_countries: ["US", "GB", "ES", "AU"], prompt: 'Select a country' %>
+  <%= f.file_field :image %>
   <%= f.submit %>
 <% end %>

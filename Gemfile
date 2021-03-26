@@ -32,6 +32,8 @@ gem 'devise'
 
 gem 'pry'
 
+gem 'cloudinary'
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'country_select', '~> 4.0'
 
 group :development, :test do

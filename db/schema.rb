@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_26_213403) do
+ActiveRecord::Schema.define(version: 2021_03_26_224126) do
+
+  create_table "image_links", force: :cascade do |t|
+    t.string "image_link"
+  end
 
   create_table "ratings", force: :cascade do |t|
     t.float "rating"
