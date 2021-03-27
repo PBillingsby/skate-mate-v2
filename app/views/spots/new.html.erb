@@ -10,6 +10,12 @@
   <%= f.text_field :state %>
   <%= f.label :country %>
   <%= f.country_select :country, priority_countries: ["US", "GB", "ES", "AU"], prompt: 'Select a country' %>
+  <%= f.fields_for :rating do |ff| %>
+    <%= ff.label :rating %>
+    <%= ff.number_field :ratings, step: 0.1 %>
+    <%= ff.label :description %>
+    <%= ff.text_area :description %>
+  <% end %>
   <%= f.file_field :image %>
   <%= f.submit %>
 <% end %>

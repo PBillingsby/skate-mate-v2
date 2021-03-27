@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2021_03_26_224126) do
   end
 
   create_table "ratings", force: :cascade do |t|
+    t.integer "spot_id"
+    t.integer "user_id"
     t.float "rating"
     t.text "description"
   end

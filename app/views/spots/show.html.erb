@@ -6,7 +6,4 @@ elgdlkashasdlkf
   <%= image_tag(url.image_link, width: "800", height: "auto") %>
 <% end %>
 
-<% form_for @spot.ratings.build do |f| %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-<% end %>
+<%= link_to "Delete #{@spot.name}", spot_path(@spot), data: { confirm: 'Are you certain you want to delete this?' }, method: :delete %>

@@ -4,12 +4,14 @@
     <title>SkateMate</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <% if current_user %>
       <nav>
         <p>Welcome, <%= current_user.username %>.</p>
+        <a href="/">Home</a>
       </nav>
       
     <% end %>
