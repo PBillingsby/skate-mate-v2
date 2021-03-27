@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+.text-red {
+  font-size: 1.2em;
+  color: red;
+  text-align: center;
+}
+.text-green {
+  font-size: 1.2em;
+  color: green;
+  text-align: center;
+}

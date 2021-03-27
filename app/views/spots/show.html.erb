@@ -1,9 +1,11 @@
 elgdlkashasdlkf
 
 <%= @spot.name %>
-
+<% @spot.ratings.each do |rating| %>
+  <%= rating.rating %>
+<% end %>
 <% @spot.image_links.each do |url| %>
-  <%= image_tag(url.image_link, width: "800", height: "auto") %>
+  <%= image_tag(url.image_link, width: "500", height: "auto") %>
 <% end %>
 
-<%= link_to "Delete #{@spot.name}", spot_path(@spot), data: { confirm: 'Are you certain you want to delete this?' }, method: :delete %>
+<%= button_to "Delete #{@spot.name}", spot_path(@spot), data: { confirm: 'Are you certain you want to delete this?' }, method: :delete %>
