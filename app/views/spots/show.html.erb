@@ -1,8 +1,7 @@
-elgdlkashasdlkf
 
-<%= @spot.name %>
+<h1><%= @spot.name %></h1><br>
 <% @spot.ratings.each do |rating| %>
-  <%= rating.rating %>
+  Rating: <%= rating.rating %>
 <% end %>
 <% @spot.image_links.each do |url| %>
   <%= image_tag(url.image_link, width: "500", height: "auto") %>

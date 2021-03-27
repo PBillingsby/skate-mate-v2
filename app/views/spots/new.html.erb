@@ -10,7 +10,8 @@
   <%= f.text_field :state %>
   <%= f.label :country %>
   <%= f.country_select :country, priority_countries: ["US", "GB", "ES", "AU"], prompt: 'Select a country' %>
-  <%= f.fields_for @rating do |ff| %>
+  <%= f.fields_for :ratings do |ff| %>
+    <%= ff.hidden_field :user_id, :value => current_user.id %>
     <%= ff.label :rating %>
     <%= ff.number_field :rating, step: 0.1 %>
     <%= ff.label :description %>

@@ -1,3 +1,6 @@
 <h3>Your Spots</h3>
+<% current_user.spots.each do |spot| %>
+  <%= link_to spot.name, spot_path(spot) %><br>
+<% end %><br>
 
 <%= link_to 'Add new spot', new_spot_path %>

@@ -1,11 +1,10 @@
 class SpotsController < ApplicationController
   def new
     @spot = Spot.new
-    @rating = @spot.ratings.build
+    @spot.ratings.build
   end
 
   def create
-    binding.pry
     spot = Spot.create(spot_params)
     if params[:spot][:image]
       image = Cloudinary::Uploader.upload(params[:spot][:image], options = {CLOUDINARY_URL: ENV["CLOUDINARY_NAME"]})
@@ -30,6 +29,6 @@ class SpotsController < ApplicationController
   end
 
   def spot_params
-    params.require(:spot).permit(:name, :street_address, :city, :state, :country, :user_id, { ratings_attributes: [:rating, :description] })
+    params.require(:spot).permit(:name, :street_address, :city, :state, :country, :user_id, { ratings_attributes: [:user_id, :rating, :description] })
   end
 end
