@@ -9,8 +9,9 @@ class Spot < ApplicationRecord
   before_save :set_spot_coordinates
 
   def set_spot_coordinates
-    binding.pry
-    response = HTTParty.get("http://geocoding/v5/mapbox.places/#{self.street_address.gsub(" ", "%")}%20#{self.city}%20#{self.state}%20#{self.country}.json?access_token=#{ENV["MAPBOX_TOKEN"]}")
-    binding.pry
+    Mapbox.access_token = ENV["MAPBOX_TOKEN"]
+    spot_coordinates = Mapbox::Geocoder.geocode_forward("#{self.street_address}, #{self.city}, #{self.state}, #{self.country}")
+    self.longitude = spot_coordinates[0]["features"][0]["center"][0]
+    self.latitude = spot_coordinates[0]["features"][0]["center"][1]
   end
 end
